@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 10</title>
+    <style>
+        .tbl {
+            border-color: red;
+        }
+
+        .td {
+            text-align: center;
+        }
+
+        .td1 {
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+<p> Viết chương trình tính giá điện.</p>
+<!--100 kWh đầu giá 1000, từ kWh 101 – 150 giá 1200, từ kWh 151 – 200 giá 2000, từ 201 trở lên giá 2500-->
+<form>
+    <input id="nhap" type="text">
+    <button id="btn" type="button" onclick="tinhToan()">Xem</button>
+    <p> Giá điện :<br>
+        -100 kWh đầu : 1000<br>
+        -101 - 150 kWh: 1200<br>
+        -150 - 200 kWh: 2000<br>
+        -201 - ... : 2500</p>
+</form>
+<table border="1" class="tbl">
+    <tr>
+        <td class="td">Giá</td>
+        <td class="td" style="width: 100px">Thành tiền</td>
+    </tr>
+    <tr>
+        <td>100 kWh đầu</td>
+        <td class="td1" id="tien1"></td>
+    </tr>
+    <tr>
+        <td>101 - 150 kWh</td>
+        <td class="td1" id="tien2"></td>
+    </tr>
+    <tr>
+        <td>150 - 200 kWh</td>
+        <td class="td1" id="tien3"></td>
+    </tr>
+    <tr>
+        <td>201 kWh trở đi</td>
+        <td class="td1" id="tien4"></td>
+    </tr>
+    <tr>
+        <td>Tổng cộng</td>
+        <td class="td1" id="result"></td>
+    </tr>
+</table>
+
+<script>
+    function tinhToan() {
+        let nhap = document.getElementById("nhap").value;
+        if (nhap <= 100) {
+            document.getElementById("tien1").innerHTML = (nhap * 1000).toLocaleString();
+            document.getElementById("result").innerHTML = (nhap * 1000).toLocaleString();
+        } else if (nhap <= 150) {
+            document.getElementById("tien1").innerHTML = (100 * 1000).toLocaleString();
+            document.getElementById("tien2").innerHTML = ((nhap - 100) * 1200).toLocaleString();
+            document.getElementById("result").innerHTML = ((100 * 1000) + (nhap - 100) * 1200).toLocaleString();
+        } else if (nhap <= 200) {
+            document.getElementById("tien1").innerHTML = (100 * 1000).toLocaleString();
+            document.getElementById("tien2").innerHTML = (50 * 1200).toLocaleString();
+            document.getElementById("tien3").innerHTML = ((nhap - 150) * 2000).toLocaleString();
+            document.getElementById("result").innerHTML = ((100 * 1000) + (50 * 1200) + (nhap - 150) * 2000).toLocaleString();
+        } else {
+            document.getElementById("tien1").innerHTML = (100 * 1000).toLocaleString();
+            document.getElementById("tien2").innerHTML = (50 * 1200).toLocaleString();
+            document.getElementById("tien3").innerHTML = (50 * 2000).toLocaleString();
+            document.getElementById("tien4").innerHTML = ((nhap - 200) * 2500).toLocaleString();
+            document.getElementById("result").innerHTML = ((100 * 1000) + (50 * 1200) + (50 * 2000) + (nhap - 200) * 2500).toLocaleString();
+        }
+
+    }
+</script>
+</body>
+</html>

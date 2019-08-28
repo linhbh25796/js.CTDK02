@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8 </title>
+</head>
+<body>
+<p>Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và
+    lơn hơn 0.</p>
+<input type="text" id="nhap">
+<button type="button" onclick="checkNum()">Check</button>
+<p id="result">Result: </p>
+<script>
+    function checkNum() {
+        let nhap = document.getElementById("nhap").value;
+
+        if (0 < nhap < 120 || (nhap == parseInt(nhap))) {
+            document.getElementById("result").innerHTML = "Đây là số nguyên " + nhap;
+
+        } else {
+            document.getElementById("result").innerHTML = "Đây không phải là số nguyên " + " và " + nhap + " không được là số <0 và > 120";
+        }
+    }
+
+
+</script>
+</body>
+</html>

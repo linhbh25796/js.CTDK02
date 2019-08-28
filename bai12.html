@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 12</title>
+</head>
+<body>
+<p> Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng
+    tháng.</p>
+<!--
+    Số tiền ban đầu : tienBanDau
+    Số tháng cho vay : nhapSoThang
+    lãi suất tháng : soLai
+    tổng tiền cả vốn lẫn lãi : tong
+
+-->
+<form>
+    Nhập tiền ban đầu: <input id="tienBanDau" type="text"> <br>
+    Nhập số tháng vay : <input id="soThangVay" type="text"> <br>
+    Nhập số lãi : <input style="width: 210px" id="laiSuat" type="text" placeholder="Nhập số thập phân <1 (10% = 0.1)"> <br>
+    <button type="button" onclick="tinhLaiCach1()">Xem C1</button>
+    <p id="result">Result</p>
+    <script>
+        function tinhLaiCach1() {
+            let tienBanDau = parseInt(document.getElementById("tienBanDau").value);
+            let soThangVay = parseInt(document.getElementById("soThangVay").value);
+            let laiSuat = parseFloat(document.getElementById("laiSuat").value);
+            let tong = Math.pow((1 + laiSuat), soThangVay) * tienBanDau;
+            document.getElementById("result").innerHTML = "Tổng số tiền phải trả: " + tong.toFixed(2);
+        }
+    </script>
+</form>
+</body>
+</html>

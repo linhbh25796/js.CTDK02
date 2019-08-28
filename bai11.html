@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 11</title>
+</head>
+<body>
+<p> Viết chương trình tính thuế thu nhập cá nhân.</p>
+<script>
+     let nhapLuong =parseInt(prompt("Lương: "));
+     let thue = (nhapLuong*10)/100;
+     document.write("Thuế phải nộp: "+thue.toLocaleString());
+     let luongConLai = nhapLuong - thue;
+     document.write("<br>");
+     document.write("Lương cuối cùng: "+luongConLai.toLocaleString());
+</script>
+</body>
+</html>
